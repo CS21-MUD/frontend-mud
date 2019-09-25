@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
+import Map from "../Map/Map";
 // holds the room state and number of tiles in the room.
 // valid directions will render a new room
 
@@ -25,6 +26,8 @@ const PlayArea = () => {
       {rooms && rooms.map(room=>{
         return <h1>{room.model}</h1>
       })}
+      
+      <Map rooms={rooms} />
 
     </div>
   );
