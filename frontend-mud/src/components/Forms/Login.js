@@ -22,7 +22,10 @@ const Login = props => {
     const onSubmit = e => {
         e.preventDefault()
         axios.post('https://nes-game.herokuapp.com/api/login/', login)
-            .then(res => console.log(res))
+            .then(res => {
+                localStorage.setItem("token", res.data.key)
+                props.history.push("/play")
+            })
             .catch(err => console.log(err))
 
         console.log(login);

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
+import {axiosWithAuth} from "../../utils/axiosWithAuth";
 // holds the room state and number of tiles in the room.
 // valid directions will render a new room
 
@@ -7,8 +8,7 @@ const PlayArea = () => {
   const [rooms, setRooms] = useState([]);
   const [error, setError] = useState(false);
   useEffect( ()=>{
-
-    axios.get("https://nes-game.herokuapp.com/api/adv/rooms").then(res=> setRooms(res.data) ).catch(err=>setError(true) )
+    axiosWithAuth().get("https://nes-game.herokuapp.com/api/adv/rooms").then(res=> setRooms(res.data) ).catch(err=>setError(true) )
 
   },[]);
 
