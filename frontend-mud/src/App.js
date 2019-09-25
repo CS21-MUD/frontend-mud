@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import PlayArea from './components/PlayArea';
+import PlayArea from './components/PlayArea/PlayArea';
 
 
 function App() {
