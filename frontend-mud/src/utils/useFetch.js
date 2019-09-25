@@ -1,4 +1,4 @@
-import React, {useEffect} from "react" 
+import React from "react" 
 
 export const fetchReducer = (state, action) => {
     if (action.type === 'get') {
