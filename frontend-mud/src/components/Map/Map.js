@@ -22,9 +22,7 @@ const CornerMap = styled.div`
     }
   
 `
-const determineLink = (locations) =>{
 
-}
 const Map = (props) =>  {
     //map takes in the rooms location and renders them appropriately along with the player-location
 

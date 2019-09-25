@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from 'axios'
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
 import Map from "../Map/Map";
 // holds the room state and number of tiles in the room.
