@@ -4,13 +4,14 @@ import './App.css';
 
 import PlayArea from './components/PlayArea/PlayArea';
 import Login from './components/Forms/Login'
+import PrivateRoute from "./utils/PrivateRoute";
 
 
 function App() {
   return (
     <div className="App">
         <Route exact path="/" component={Login}/>
-        <Route exact path="/play" component={PlayArea}/>
+        <PrivateRoute exact path="/play" component={PlayArea}/>
     </div>
   );
 }
