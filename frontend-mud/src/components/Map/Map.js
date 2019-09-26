@@ -28,7 +28,7 @@ const Map = (props) =>  {
 
     return (
         <CornerMap>
-            {props.rooms.map(room => {
+            {props.rooms && props.rooms.map(room => {
              return   <div className="generic-location"></div>
             })}
         </CornerMap>

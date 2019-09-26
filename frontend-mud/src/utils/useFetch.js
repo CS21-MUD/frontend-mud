@@ -1,5 +1,4 @@
 import React from "react"
-import axios from 'axios'
 
 export const fetchReducer = (state, action) => {
     if (action.type === 'get') {
@@ -25,7 +24,7 @@ export const fetchReducer = (state, action) => {
   };
 
   
-  export const useFetch  = (url) =>{
+  export const useAxiosFetch  = (url, promise ) =>{
     const [state, dispatch] = React.useReducer(
       fetchReducer, 
       { data: null, error: null, loading: true }
@@ -33,14 +32,19 @@ export const fetchReducer = (state, action) => {
   
     React.useEffect(() => {
       dispatch({ type: 'get' });
-  
-      fetch(url)
-        .then((res) => res.json())
-        .then((data) => dispatch({ type: 'success', data }))
+
+      //.get .post .put .delete
+      promise
+        .then((data) => {
+          console.log(data.data)
+          dispatch({ type: 'success', data: data.data })
+        })
         .catch((e) => {
           console.warn(e.message);
           dispatch({ type: 'error' })
         })
+      
+      // eslint-disable-next-line
     }, [url]);
   
     return {
