@@ -7,6 +7,8 @@ const CornerMap = styled.div`
     position: absolute;
     bottom: 40px;
     right: 40px;
+    display: grid;
+    overflow: scroll;
     .player-location{
         background: yellow;
         width: 20px;
