@@ -36,14 +36,14 @@ export const fetchReducer = (state, action) => {
       //.get .post .put .delete
       promise
         .then((data) => {
-          console.log(data.data)
+          console.log(data.data);
           dispatch({ type: 'success', data: data.data })
         })
         .catch((e) => {
           console.warn(e.message);
           dispatch({ type: 'error' })
         })
-      
+
       // eslint-disable-next-line
     }, [url]);
   

@@ -5,6 +5,10 @@ import React from "react";
 // valid directions will render a new room
 import styled from "styled-components"
 const Tiles = styled.div`
+background: #ccc
+padding: 10px;
+transform: rotate(45deg);
+margin: 10px;
 `
 const PlayArea = ({rooms}) => {
 

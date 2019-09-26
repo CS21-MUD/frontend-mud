@@ -17,7 +17,6 @@ const Core = () =>{
     if(error){
         return <p>bad boi</p>
     }
-    
     return <>
         <PlayArea rooms={rooms} /> <Map rooms={rooms} /> 
         </>;
