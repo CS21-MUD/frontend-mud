@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
+import {useAxiosFetch} from "../../utils/useFetch";
+import {axiosWithAuth} from "../../utils/axiosWithAuth";
 const CornerMap = styled.div`
     background: #000;
     width: 300px;
@@ -35,6 +37,8 @@ const Map = (props) =>  {
     };
     const [playerPosition, setplayerPosition] = React.useState(props.rooms[0].id)
     console.log(props);
+    const player = useAxiosFetch("https://nes-game.herokuapp.com/api/adv/init/", axiosWithAuth().get("https://nes-game.herokuapp.com/api/adv/init/"));
+    console.log(player)
     const handleKeypress = (key)=>{
         console.log(key);
         console.log(playerPosition)
@@ -75,6 +79,7 @@ const Map = (props) =>  {
     }
 
     React.useEffect(()=>{
+
         const keypress = (e)=>{
             handleKeypress(e.key)
         };
