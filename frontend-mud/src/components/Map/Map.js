@@ -43,10 +43,23 @@ const Map = (props) =>  {
         console.log(playerPosition)
 
             //north
-        if(key === "w" && room.hasOwnProperty("n_to") && notLastRoom){
+        if(key === "w" && room.n_to > 0 && notLastRoom){
             console.log("going north")
             setplayerPosition(room.n_to)
         }
+        else if(key === "a" && room.w_to >0 && notLastRoom){
+            console.log("going north")
+            setplayerPosition(room.w_to)
+        }
+        else if(key === "s" && room.s_to >0 && notLastRoom){
+            console.log("going north")
+            setplayerPosition(room.s_to)
+        }
+        else if(key === "d" && room.e_to >0 && notLastRoom){
+            console.log("going north")
+            setplayerPosition(room.e_to)
+        }
+
          else{
             console.log("defaulting")
             console.log("cant go that way")
@@ -67,9 +80,10 @@ const Map = (props) =>  {
         return () => window.removeEventListener("keypress", keypress)
         // eslint-disable-next-line
     }, []);
+
     return (
         <CornerMap>
-            {props.rooms && props.rooms.map((room,i)=>{
+            {props.rooms && props.rooms.sort((room1, room2)=> room1.id - room2.id).map((room,i)=>{
                 if(room.id === playerPosition){
                     return <div className="player-location" />
                 }
