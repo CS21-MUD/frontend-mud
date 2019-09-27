@@ -9,6 +9,19 @@ const FormContainer = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
+    h2{
+        font-size: 30px;
+    }
+    label{
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
+    button{
+        display: flex;
+        margin-left: 930px;
+        margin-top: 20px;
+    }
 `;
 
 const Login = props => {
@@ -59,8 +72,8 @@ const Login = props => {
                     value={login.password}
                 />
                 <button type="submit">Submit</button>
-                <p> New to our game? You can register</p>
-                <button><Route exact path ="/register" component={Register} /></button>
+                {/* <p> New to our game? You can register</p> */}
+                {/* <button><Route exact path ="/register" component={Register} /></button> */}
             </form>
         </FormContainer>
     )
