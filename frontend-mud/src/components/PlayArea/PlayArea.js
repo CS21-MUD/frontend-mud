@@ -18,8 +18,13 @@ const PlayArea = ({rooms}) => {
   const numOfPlayTiles = [1,2,3,4,5]
   return (
     <div>
-      <h1>an array of waifus will be rendered here somehow</h1>
-        {numOfPlayTiles.map(()=> <Tiles />)}
+      <h1>render things here</h1>
+      {rooms && rooms.map(room=>{
+        return <Tiles />
+      })}
+      
+
+
     </div>
   );
 };

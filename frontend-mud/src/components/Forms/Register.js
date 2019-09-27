@@ -8,7 +8,7 @@ const FormContainer = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    .login-container{
+    .reg-container{
         margin-top: 200px;
     }
     h2{
@@ -26,35 +26,32 @@ const FormContainer = styled.div`
     }
     p{
         margin-top: 10px;
-    }
-    .reg-link{
         text-decoration: underline;
-        margin-top: 10px;
     }
 `;
 
-const Login = props => {
-    const [login, setLogin] = useState({
+const Register = props => {
+    const [register, setRegister] = useState({
         username: '',
         password: ''
     });
 
-    const handleChange = e => setLogin({
-        ...login,
+    const handleChange = e => setRegister({
+        ...register,
         [e.target.name]: e.target.value
     });
 
     const onSubmit = e => {
         e.preventDefault()
-        axios.post('https://nes-game.herokuapp.com/api/login/', login)
+        axios.post('https://nes-game.herokuapp.com/api/register/', register)
             .then(res => {
                 localStorage.setItem("token", res.data.key)
                 props.history.push("/play")
             })
             .catch(err => console.log(err))
 
-        console.log(login);
-        setLogin({
+        console.log(register);
+        setRegister({
             username:'',
             password:''
         })
@@ -62,8 +59,8 @@ const Login = props => {
 
     return(
         <FormContainer>
-        <div className='login-container'>
-            <h2>Log In</h2>
+        <div className='reg-container'>
+            <h2>Register</h2>
             <form onSubmit={onSubmit}>
                 <label>Username:</label>
                 <input
@@ -71,7 +68,7 @@ const Login = props => {
                     name="username"
                     placeholder="Enter your username..."
                     onChange={handleChange}
-                    value={login.username}
+                    value={register.username}
                 />
                 <label>Password:</label>
                 <input
@@ -79,15 +76,14 @@ const Login = props => {
                     name="password"
                     placeholder="Enter your password..."
                     onChange={handleChange}
-                    value={login.password}
+                    value={register.password}
                 />
                 <button type="submit">Submit</button>
-                <p> New to our game? You can register...<Link to ='/register'><div className='reg-link'>Here</div></Link></p>
-                
+                <p><Link to ='/'>Login Page</Link></p>
             </form>
             </div>
         </FormContainer>
     )
 };
 
-export default Login;
+export default Register
