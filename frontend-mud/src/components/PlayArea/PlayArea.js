@@ -7,23 +7,19 @@ import styled from "styled-components"
 const Tiles = styled.div`
 background: #ccc
 padding: 10px;
-transform: rotate(45deg);
 margin: 10px;
+// transform: rotate(45deg);
+display: grid;
+grid-template-columns: 60px 60px;
 `
 const PlayArea = ({rooms}) => {
 
-
   console.log(rooms);
-
+  const numOfPlayTiles = [1,2,3,4,5]
   return (
     <div>
       <h1>an array of waifus will be rendered here somehow</h1>
-      {rooms && rooms.map(room=>{
-        return <Tiles />
-      })}
-      
-
-
+        {numOfPlayTiles.map(()=> <Tiles />)}
     </div>
   );
 };
