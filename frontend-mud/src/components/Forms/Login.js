@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import styled from "styled-components";
-import Register from "./Register"
 
 const FormContainer = styled.div`
     margin: 0 auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    .login-container{
+        margin-top: 200px;
+    }
     h2{
         font-size: 30px;
     }
@@ -21,6 +23,13 @@ const FormContainer = styled.div`
         display: flex;
         margin-left: 930px;
         margin-top: 20px;
+    }
+    p{
+        margin-top: 10px;
+    }
+    .reg-link{
+        text-decoration: underline;
+        margin-top: 10px;
     }
 `;
 
@@ -53,6 +62,7 @@ const Login = props => {
 
     return(
         <FormContainer>
+        <div className='login-container'>
             <h2>Log In</h2>
             <form onSubmit={onSubmit}>
                 <label>Username:</label>
@@ -72,9 +82,10 @@ const Login = props => {
                     value={login.password}
                 />
                 <button type="submit">Submit</button>
-                {/* <p> New to our game? You can register</p> */}
-                {/* <button><Route exact path ="/register" component={Register} /></button> */}
+                <p> New to our game? You can register...<Link to ='/register'><div className='reg-link'>Here</div></Link></p>
+                
             </form>
+            </div>
         </FormContainer>
     )
 };
