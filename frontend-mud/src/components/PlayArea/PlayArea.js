@@ -6,7 +6,7 @@ import React from "react";
 import styled from "styled-components"
 const Tiles = styled.div`
 background: #ccc
-padding: 10px;
+padding 10px;
 transform: rotate(45deg);
 margin: 10px;
 `
@@ -17,7 +17,7 @@ const PlayArea = ({rooms}) => {
 
   return (
     <div>
-      <h1>an array of waifus will be rendered here somehow</h1>
+      <h1>render things here</h1>
       {rooms && rooms.map(room=>{
         return <Tiles />
       })}
